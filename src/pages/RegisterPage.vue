@@ -26,6 +26,40 @@
       </b-form-group>
 
       <b-form-group
+        id="input-group-firstname"
+        label-cols-sm="3"
+        label="First Name:"
+        label-for="firstname"
+      >
+        <b-form-input
+          id="firstname"
+          v-model="$v.form.firstname.$model"
+          type="text"
+          :state="validateState('firstname')"
+        ></b-form-input>
+        <b-form-invalid-feedback>
+          First Name is required
+        </b-form-invalid-feedback>
+      </b-form-group>
+
+      <b-form-group
+        id="input-group-lastname"
+        label-cols-sm="3"
+        label="Last Name:"
+        label-for="lastname"
+      >
+        <b-form-input
+          id="lastname"
+          v-model="$v.form.lastname.$model"
+          type="text"
+          :state="validateState('lastname')"
+        ></b-form-input>
+        <b-form-invalid-feedback>
+          Last Name is required
+        </b-form-invalid-feedback>
+      </b-form-group>
+
+      <b-form-group
         id="input-group-country"
         label-cols-sm="3"
         label="Country:"
@@ -69,6 +103,26 @@
       </b-form-group>
 
       <b-form-group
+        id="input-group-email"
+        label-cols-sm="3"
+        label="Email:"
+        label-for="email"
+      >
+        <b-form-input
+          id="email"
+          v-model="$v.form.email.$model"
+          type="text"
+          :state="validateState('email')"
+        ></b-form-input>
+        <b-form-invalid-feedback v-if="!$v.form.email.required">
+          Email is required
+        </b-form-invalid-feedback>
+        <b-form-invalid-feedback v-if="!$v.form.email.email">
+          Email is not in the right format
+        </b-form-invalid-feedback>
+      </b-form-group>
+
+      <!-- <b-form-group
         id="input-group-confirmedPassword"
         label-cols-sm="3"
         label="Confirm Password:"
@@ -88,7 +142,7 @@
         >
           The confirmed password is not equal to the original password
         </b-form-invalid-feedback>
-      </b-form-group>
+      </b-form-group> -->
 
       <b-button type="reset" variant="danger">Reset</b-button>
       <b-button
@@ -126,7 +180,6 @@ import {
   minLength,
   maxLength,
   alpha,
-  sameAs,
   email
 } from "vuelidate/lib/validators";
 
@@ -136,11 +189,11 @@ export default {
     return {
       form: {
         username: "",
-        firstName: "",
-        lastName: "",
+        firstname: "",
+        lastname: "",
         country: null,
         password: "",
-        confirmedPassword: "",
+        // confirmedPassword: "",
         email: "",
         submitError: undefined
       },
@@ -156,6 +209,12 @@ export default {
         length: (u) => minLength(3)(u) && maxLength(8)(u),
         alpha
       },
+      firstname: {
+        required
+      },
+      lastname: {
+        required
+      },
       country: {
         required
       },
@@ -163,9 +222,9 @@ export default {
         required,
         length: (p) => minLength(5)(p) && maxLength(10)(p)
       },
-      confirmedPassword: {
+      email: {
         required,
-        sameAsPassword: sameAs("password")
+        email
       }
     }
   },
@@ -187,7 +246,11 @@ export default {
 
           {
             username: this.form.username,
-            password: this.form.password
+            firstname: this.form.firstname,
+            lastname: this.form.lastname,
+            country: this.form.country,
+            password: this.form.password,
+            email: this.form.email
           }
         );
         this.$router.push("/login");
@@ -213,7 +276,7 @@ export default {
         lastName: "",
         country: null,
         password: "",
-        confirmedPassword: "",
+        // confirmedPassword: "",
         email: ""
       };
       this.$nextTick(() => {

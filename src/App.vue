@@ -10,6 +10,19 @@
         <router-link :to="{ name: 'login' }">Login</router-link>|
       </span>
       <span v-else>
+        <!-- <router-link :to="{ name: 'addRecipe' }">Add Recipe</router-link>| -->
+          <button
+      type="button"
+      class="btn"
+      @click="showModal"
+    >
+      Open Modal!
+    </button>
+
+    <modal
+      v-show="isModalVisible"
+      @close="closeModal"
+    />
         {{ $root.store.username }}: <button @click="Logout">Logout</button>|
       </span>
     </div>
@@ -18,8 +31,17 @@
 </template>
 
 <script>
+import modal from './/components/AddRecipe.vue';
 export default {
   name: "App",
+  components: {
+      modal,
+    },
+  data () {
+      return {
+        isModalVisible: false,
+      };
+    },
   methods: {
     Logout() {
       this.$root.store.logout();
@@ -28,7 +50,13 @@ export default {
       this.$router.push("/").catch(() => {
         this.$forceUpdate();
       });
-    }
+    },
+    showModal() {
+        this.isModalVisible = true;
+      },
+      closeModal() {
+        this.isModalVisible = false;
+      }
   }
 };
 </script>

@@ -2,6 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueAxios from "vue-axios";
 import axios from "axios";
+// import VueCookies from 'vue-cookies';
+axios.defaults.withCredentials = true;
 
 import routes from "./routes";
 import VueRouter from "vue-router";
@@ -39,6 +41,8 @@ import {
 ].forEach((x) => Vue.use(x));
 Vue.use(Vuelidate);
 
+// Vue.use(VueCookies);
+
 axios.interceptors.request.use(
   function(config) {
     // Do something before request is sent
@@ -68,6 +72,8 @@ Vue.config.productionTip = false;
 
 const shared_data = {
   username: localStorage.username,
+  // server_domain: "https://virtserver.swaggerhub.com/eyalev18/Recipes/1.0.0",
+  server_domain: "http://localhost:3000",
   login(username) {
     localStorage.setItem("username", username);
     this.username = username;

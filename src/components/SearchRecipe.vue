@@ -15,7 +15,7 @@
 <script>
 import RecipePreview from "./RecipePreview.vue";
 export default {
-  name: "RecipePreviewList",
+  name: "SearchRecipe",
   components: {
     RecipePreview
   },
@@ -23,7 +23,14 @@ export default {
     title: {
       type: String,
       required: true
-    }
+    },
+    recipeName: {
+      type: String,
+      required: true
+    },
+    recipeNumber: {
+      type: String
+    },
   },
   data() {
     return {
@@ -31,13 +38,16 @@ export default {
     };
   },
   mounted() {
-    this.updateRecipes();
+    this.searchRecipe();
   },
   methods: {
-    async updateRecipes() {
+    async searchRecipe() {
+      if (this.recipeNumber === "0") {
+        this.recipeNumber = "5";
+      }
       try {
         const response = await this.axios.get(
-          this.$root.store.server_domain + "/recipes/random",
+          this.$root.store.server_domain + "/recipes/recipesByName/" + this.recipeName + "/" + this.recipeNumber,
           // "https://test-for-3-2.herokuapp.com/recipes/random"
         );
         // console.log(response.data);
