@@ -10,7 +10,8 @@
         <router-link :to="{ name: 'login' }">Login</router-link>|
       </span>
       <span v-else>
-        <!-- <router-link :to="{ name: 'addRecipe' }">Add Recipe</router-link>| -->
+        <router-link :to="{ name: 'MyFavorites' }">My Favorite Recipes</router-link>|
+        <router-link :to="{ name: 'MyRecipes' }">My Recipes</router-link>|
           <button
       type="button"
       class="btn"
@@ -31,7 +32,7 @@
 </template>
 
 <script>
-import modal from './/components/AddRecipe.vue';
+import modal from './components/AddRecipe.vue';
 export default {
   name: "App",
   components: {

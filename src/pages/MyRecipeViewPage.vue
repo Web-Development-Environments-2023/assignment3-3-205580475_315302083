@@ -64,7 +64,7 @@ export default {
         response = await this.axios.get(
           // "https://test-for-3-2.herokuapp.com/recipes/info",
           //this.$root.store.server_domain + "/recipes/9",
-          this.$root.store.server_domain + "/recipes/FullRecipe/"+this.$route.params.recipeId,
+          this.$root.store.server_domain + "/users/MyRecipes/"+this.$route.params.recipeId,
           // {
           //   params: { id: this.$route.params.recipeId }
           // }
@@ -80,8 +80,6 @@ export default {
       console.log(response)
       let {
         instructions,
-        // _instructions,
-        //analyzedInstructions,
         extendedIngredients,
         popularity,
         readyInMinutes,
