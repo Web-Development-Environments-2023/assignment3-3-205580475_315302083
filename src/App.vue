@@ -3,7 +3,9 @@
     <div id="nav">
       <router-link :to="{ name: 'main' }">Vue Recipes</router-link>|
       <router-link :to="{ name: 'search' }">Search</router-link>|
-      {{ !$root.store.username }}
+      <button type="button" class="btn" @click="showModalAbout"><b>About</b></button>|
+      <modalAbout v-show="isModalVisibleAbout" @close="closeModalAbout" />
+      <!-- {{ !$root.store.username }} -->
       <span v-if="!$root.store.username">
         Guest:
         <router-link :to="{ name: 'register' }">Register</router-link>|
@@ -12,18 +14,9 @@
       <span v-else>
         <router-link :to="{ name: 'MyFavorites' }">My Favorite Recipes</router-link>|
         <router-link :to="{ name: 'MyRecipes' }">My Recipes</router-link>|
-          <button
-      type="button"
-      class="btn"
-      @click="showModal"
-    >
-      Open Modal!
-    </button>
-
-    <modal
-      v-show="isModalVisible"
-      @close="closeModal"
-    />
+        <router-link :to="{ name: 'MyFamilyRecipes' }">My Family Recipes</router-link>|
+        <button type="button" class="btn" @click="showModal"><b>Add New Recipe</b></button>|
+      <modal v-show="isModalVisible" @close="closeModal" />
         {{ $root.store.username }}: <button @click="Logout">Logout</button>|
       </span>
     </div>
@@ -33,14 +26,17 @@
 
 <script>
 import modal from './components/AddRecipe.vue';
+import modalAbout from './components/AboutModal.vue';
 export default {
   name: "App",
   components: {
       modal,
+      modalAbout
     },
   data () {
       return {
         isModalVisible: false,
+        isModalVisibleAbout: false,
       };
     },
   methods: {
@@ -55,8 +51,14 @@ export default {
     showModal() {
         this.isModalVisible = true;
       },
-      closeModal() {
+    closeModal() {
         this.isModalVisible = false;
+      },
+    showModalAbout() {
+        this.isModalVisibleAbout = true;
+      },
+    closeModalAbout() {
+        this.isModalVisibleAbout = false;
       }
   }
 };
@@ -85,4 +87,15 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {background: #eee;}
 </style>
