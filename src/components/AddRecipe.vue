@@ -5,9 +5,11 @@
       <b-form @submit.prevent="onRegister" @reset.prevent="onReset">
         <b-form-group
           id="input-group-recipeName"
-          label-cols-sm="3"
+          class="input-group"
+          label-cols-sm="1"
           label="Recipe Name:"
           label-for="recipeName"
+          label-align="center"
         >
           <b-form-input
             id="recipeName"
@@ -22,9 +24,11 @@
 
         <b-form-group
           id="input-group-readyInMinutes"
-          label-cols-sm="3"
+          class="input-group"
+          label-cols-sm="1"
           label="preparation Time:"
           label-for="readyInMinutes"
+          label-align="center"
         >
           <b-form-input
             id="readyInMinutes"
@@ -39,9 +43,11 @@
 
         <b-form-group
           id="input-group-image"
-          label-cols-sm="3"
+          class="input-group"
+          label-cols-sm="1"
           label="Image:"
           label-for="image"
+          label-align="center"
         >
           <b-form-input
             id="image"
@@ -56,9 +62,11 @@
 
         <b-form-group
           id="input-group-popularity"
-          label-cols-sm="3"
+          class="input-group"
+          label-cols-sm="1"
           label="Popularity:"
           label-for="popularity"
+          label-align="center"
         >
           <b-form-input
             id="popularity"
@@ -73,9 +81,11 @@
 
         <b-form-group
           id="input-group-vegan"
-          label-cols-sm="3"
+          class="input-group"
+          label-cols-sm="1"
           label="Is Vegan:"
           label-for="vegan"
+          label-align="center"
         >
           <b-form-input
             id="vegan"
@@ -90,9 +100,11 @@
 
         <b-form-group
           id="input-group-vegetarian"
-          label-cols-sm="3"
+          class="input-group"
+          label-cols-sm="1"
           label="Is Vegetarian:"
           label-for="vegetarian"
+          label-align="center"
         >
           <b-form-input
             id="vegetarian"
@@ -107,9 +119,11 @@
 
         <b-form-group
           id="input-group-glutenFree"
-          label-cols-sm="3"
+          class="input-group"
+          label-cols-sm="1"
           label="Is Gluten Free:"
           label-for="glutenFree"
+          label-align="center"
         >
           <b-form-input
             id="glutenFree"
@@ -124,9 +138,11 @@
 
         <b-form-group
           id="input-group-extendedIngredients"
-          label-cols-sm="3"
+          class="input-group"
+          label-cols-sm="1"
           label="Ingredients:"
           label-for="extendedIngredients"
+          label-align="center"
         >
           <b-form-input
             id="extendedIngredients"
@@ -141,9 +157,11 @@
 
         <b-form-group
           id="input-group-instructions"
-          label-cols-sm="3"
+          class="input-group"
+          label-cols-sm="1"
           label="Instructions:"
           label-for="instructions"
+          label-align="center"
         >
           <b-form-input
             id="instructions"
@@ -158,9 +176,11 @@
 
         <b-form-group
           id="input-group-servings"
-          label-cols-sm="3"
+          class="input-group"
+          label-cols-sm="1"
           label="How Many Servings:"
           label-for="servings"
+          label-align="center"
         >
           <b-form-input
             id="servings"
@@ -179,16 +199,15 @@
           variant="primary"
           style="width:250px;"
           class="ml-5 w-75"
-          >Register</b-button
-        >
-        <button
+          >Register</b-button>
+        <b-button
               type="button"
               class="btn-green"
               @click="close"
               aria-label="Close modal"
             >
               Close me!
-            </button>
+            </b-button>
       </b-form>
       <b-alert
         class="mt-2"
@@ -335,6 +354,8 @@
     display: flow-root;
     justify-content: center;
     align-items: center;
+    opacity: 1;
+    z-index: -1;
   }
 
   .btn-close {
@@ -361,5 +382,11 @@
   .modalTitle {
     font-weight: 900;
     color: aliceblue;
+  }
+
+  .input-group {
+    color: #4AAE9B;
+    background: green;
+    font-weight: bold;
   }
 </style>

@@ -19,14 +19,12 @@
               <div>vegetarian: {{ recipe.vegetarian }} </div>
             </div>
             Ingredients:
-            <ul>
-              <li
-                v-for="(r, index) in recipe.extendedIngredients"
-                :key="index + '_' + r.id"
-              >
-                {{ r.original }}
-              </li>
-            </ul>
+            <ol>
+               <div> {{ recipe.extendedIngredients }} </div>
+              <!-- <li v-for="s in recipe.instructions" :key="s.number">
+                {{ s.step }}
+              </li> -->
+            </ol>
           </div>
           <div class="wrapped">
             Instructions:

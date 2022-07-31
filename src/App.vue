@@ -7,7 +7,7 @@
       <modalAbout v-show="isModalVisibleAbout" @close="closeModalAbout" />
       <!-- {{ !$root.store.username }} -->
       <span v-if="!$root.store.username">
-        Guest:
+        Hello Guest:
         <router-link :to="{ name: 'register' }">Register</router-link>|
         <router-link :to="{ name: 'login' }">Login</router-link>|
       </span>

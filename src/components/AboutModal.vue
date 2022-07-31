@@ -2,6 +2,14 @@
   <transition name="modal-fade">
     <div class="modal-backdrop">
       <h1 class="modalTitle">About Us!</h1>
+      <div class="aboutUs">
+        We are Eyal and Roni, Third year information system engineering students <br>
+        This is are final project in this course <br>
+        If you want to check out our previous projects click this links: <br>
+        For Our pacman game project click this link: <a href="https://web-development-environments-2022.github.io/assignment2-315302083_205580475/" style="color: blue">Pacman Project</a> <br>
+        For Eyal's personal website project click this link: <a href="https://web-development-environments-2022.github.io/315302083/" style="color: blue">Eyal Website</a> <br>
+        For Roni's personal website project click this link: <a href="https://web-development-environments-2022.github.io/205580475/" style="color: blue">Roni Website</a>
+      </div>
       <button
         type="button"
         class="btn-green"
@@ -34,6 +42,7 @@
     display: flow-root;
     justify-content: center;
     align-items: center;
+    opacity: 1;
   }
 
   .btn-close {
@@ -59,6 +68,10 @@
 
   .modalTitle {
     font-weight: 900;
+    color: aliceblue;
+  }
+
+  .aboutUs {
     color: aliceblue;
   }
 </style>
