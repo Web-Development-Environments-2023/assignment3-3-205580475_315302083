@@ -1,6 +1,6 @@
 <template>
   <transition name="modal-fade">
-    <div class="modal-backdrop">
+    <div class="addModal">
       <h1 class="modalTitle">Add New Recipe</h1>
       <b-form @submit.prevent="onRegister" @reset.prevent="onReset">
         <b-form-group
@@ -344,18 +344,15 @@
   };
 </script>
 <style>
-  .modal-backdrop {
+  .addModal {
     position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flow-root;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    z-index: -1;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.95;
   }
 
   .btn-close {

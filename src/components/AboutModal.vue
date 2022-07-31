@@ -1,6 +1,6 @@
 <template>
-  <transition name="modal-fade">
-    <div class="modal-backdrop">
+  <!-- <transition name="modal-fade"> -->
+    <div class="aboutModal">
       <h1 class="modalTitle">About Us!</h1>
       <div class="aboutUs">
         We are Eyal and Roni, Third year information system engineering students <br>
@@ -19,7 +19,7 @@
         Close me!
       </button>
     </div>
-  </transition>
+  <!-- </transition> -->
 </template>
 <script>
   export default {
@@ -32,17 +32,15 @@
   };
 </script>
 <style>
-  .modal-backdrop {
+  .aboutModal {
     position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flow-root;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.95;
   }
 
   .btn-close {

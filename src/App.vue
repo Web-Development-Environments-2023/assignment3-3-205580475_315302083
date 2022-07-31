@@ -1,12 +1,54 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <b-navbar toggleable="lg" type="dark" variant="info">
+      <b-navbar-brand :to="{ name: 'main' }">Vue Recipes</b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item :to="{ name: 'search' }">Search</b-nav-item>
+          <b-nav-item @click="showModalAbout">About</b-nav-item>
+          <modalAbout v-show="isModalVisibleAbout" @close="closeModalAbout" />
+        </b-navbar-nav>
+
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto" v-if="!$root.store.username">
+          <b-nav-item-dropdown right>
+            <!-- Using 'button-content' slot -->
+            <template #button-content>
+              <em>Hello Guest</em>
+            </template>
+            <b-dropdown-item :to="{ name: 'register' }">Register</b-dropdown-item>
+            <b-dropdown-item :to="{ name: 'login' }">Login</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto" v-else>
+          <b-nav-item-dropdown text="Actions" right>
+            <b-dropdown-item :to="{ name: 'MyFavorites' }">My Favorite Recipes</b-dropdown-item>
+            <b-dropdown-item :to="{ name: 'MyRecipes' }">My Recipes</b-dropdown-item>
+            <b-dropdown-item :to="{ name: 'MyFamilyRecipes' }">My Family Recipes</b-dropdown-item>
+          </b-nav-item-dropdown>
+          <b-nav-item @click="showModal">Add New Recipe</b-nav-item>
+          <modal v-show="isModalVisible" @close="closeModal" />
+          <b-nav-item-dropdown right>
+            <!-- Using 'button-content' slot -->
+            <template #button-content>
+              <em>{{ $root.store.username }}</em>
+            </template>
+            <b-dropdown-item @click="Logout">Logout</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+    <router-view />
+    <!-- <div id="nav">
       <router-link :to="{ name: 'main' }">Vue Recipes</router-link>|
       <router-link :to="{ name: 'search' }">Search</router-link>|
       <button type="button" class="btn" @click="showModalAbout"><b>About</b></button>|
-      <modalAbout v-show="isModalVisibleAbout" @close="closeModalAbout" />
+      <modalAbout v-show="isModalVisibleAbout" @close="closeModalAbout" /> -->
       <!-- {{ !$root.store.username }} -->
-      <span v-if="!$root.store.username">
+      <!-- <span v-if="!$root.store.username">
         Hello Guest:
         <router-link :to="{ name: 'register' }">Register</router-link>|
         <router-link :to="{ name: 'login' }">Login</router-link>|
@@ -16,11 +58,11 @@
         <router-link :to="{ name: 'MyRecipes' }">My Recipes</router-link>|
         <router-link :to="{ name: 'MyFamilyRecipes' }">My Family Recipes</router-link>|
         <button type="button" class="btn" @click="showModal"><b>Add New Recipe</b></button>|
-      <modal v-show="isModalVisible" @close="closeModal" />
+        <modal v-show="isModalVisible" @close="closeModal" />
         {{ $root.store.username }}: <button @click="Logout">Logout</button>|
       </span>
     </div>
-    <router-view />
+    <router-view /> -->
   </div>
 </template>
 
