@@ -41,6 +41,7 @@
     height: 100vh;
     background-color: #000;
     opacity: 0.95;
+    overflow-y: auto;
   }
 
   .btn-close {

@@ -74,6 +74,8 @@ const shared_data = {
   username: localStorage.username,
   // server_domain: "https://virtserver.swaggerhub.com/eyalev18/Recipes/1.0.0",
   server_domain: "http://localhost:3000",
+//  server_domain: "https://RecipesER.cs.bgu.ac.il",
+
   login(username) {
     localStorage.setItem("username", username);
     this.username = username;
