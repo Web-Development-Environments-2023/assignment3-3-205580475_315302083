@@ -6,6 +6,10 @@
     <div class="recipe-body">
       <img :src="recipe.image" class="recipe-image" />
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="recipe-footer">
       <div :title="recipe.title" class="recipe-title">
         {{ recipe.title }}

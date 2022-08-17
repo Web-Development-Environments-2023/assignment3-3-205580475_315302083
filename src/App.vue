@@ -42,27 +42,7 @@
       </b-collapse>
     </b-navbar>
     <router-view />
-    <!-- <div id="nav">
-      <router-link :to="{ name: 'main' }">Vue Recipes</router-link>|
-      <router-link :to="{ name: 'search' }">Search</router-link>|
-      <button type="button" class="btn" @click="showModalAbout"><b>About</b></button>|
-      <modalAbout v-show="isModalVisibleAbout" @close="closeModalAbout" /> -->
-      <!-- {{ !$root.store.username }} -->
-      <!-- <span v-if="!$root.store.username">
-        Hello Guest:
-        <router-link :to="{ name: 'register' }">Register</router-link>|
-        <router-link :to="{ name: 'login' }">Login</router-link>|
-      </span>
-      <span v-else>
-        <router-link :to="{ name: 'MyFavorites' }">My Favorite Recipes</router-link>|
-        <router-link :to="{ name: 'MyRecipes' }">My Recipes</router-link>|
-        <router-link :to="{ name: 'MyFamilyRecipes' }">My Family Recipes</router-link>|
-        <button type="button" class="btn" @click="showModal"><b>Add New Recipe</b></button>|
-        <modal v-show="isModalVisible" @close="closeModal" />
-        {{ $root.store.username }}: <button @click="Logout">Logout</button>|
-      </span>
-    </div>
-    <router-view /> -->
+   
   </div>
 </template>
 
